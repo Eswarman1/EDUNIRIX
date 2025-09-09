@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+
+    /* Core Palette */
+    --color-bg-dark: #000000;   /* Pure black */
+    --color-bg-light: #FFFFFF;  /* Pure white */
+    --color-text-gold: #FFD700; /* Gold */
+    --color-text-blue: #1E3A8A; /* Dark Blue */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Default Dark Mode */
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-gold);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Light Mode */
+  .light body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-blue);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* Links */
+  a {
+    color: var(--color-text-gold);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .light a {
+    color: var(--color-text-blue);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-gold);
+  }
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    color: var(--color-text-blue);
+  }
+
+  /* Inputs */
+  input, select, textarea {
+    @apply border rounded-md px-3 py-2;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-gold);
+  }
+  .light input, .light select, .light textarea {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-blue);
+    border-color: #ddd;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--color-text-gold);
+  }
+  .light input:focus, .light select:focus, .light textarea:focus {
+    outline: 2px solid var(--color-text-blue);
+  }
+}
+
+@layer components {
+  /* Primary Button */
+  .btn-primary {
+    @apply font-medium py-2 px-4 rounded-md transition duration-200 shadow-md;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-gold);
+    border: 1px solid var(--color-text-gold);
+  }
+  .light .btn-primary {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-blue);
+    border: 1px solid var(--color-text-blue);
+  }
+
+  /* Card */
+  .card {
+    @apply rounded-lg shadow-xl p-6 border transition;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-gold);
+    border-color: var(--color-text-gold);
+  }
+  .light .card {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-blue);
+    border-color: var(--color-text-blue);
+  }
+}
+
+@layer utilities {
+  .border-gold {
+    border-color: var(--color-text-gold);
+  }
+  .light .border-gold {
+    border-color: var(--color-text-blue);
+  }
+}
